@@ -17,7 +17,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddCors(options => options.AddPolicy(name: "StudentOrigins",
 	policy =>
 	{
-		policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+		policy.WithOrigins("https://student-manager-fe7af.web.app").AllowAnyMethod().AllowAnyHeader();
 	}));
 
 builder.Services.AddScoped<IStudentModel, StudentModel>();

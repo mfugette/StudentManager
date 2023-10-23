@@ -156,3 +156,4 @@ C:\Users\Maxwell Fugette\Desktop\StudentManager\StudentManagerAPI\obj\Debug\net7
 C:\Users\Maxwell Fugette\Desktop\StudentManager\StudentManagerAPI\obj\Debug\net7.0\StudentManagerAPI.pdb
 C:\Users\Maxwell Fugette\Desktop\StudentManager\StudentManagerAPI\obj\Debug\net7.0\StudentManagerAPI.genruntimeconfig.cache
 C:\Users\Maxwell Fugette\Desktop\StudentManager\StudentManagerAPI\obj\Debug\net7.0\ref\StudentManagerAPI.dll
+C:\Users\Maxwell Fugette\Desktop\StudentManager\StudentManagerAPI\bin\Debug\net7.0\View\StudentManagerUI\firebase.json
