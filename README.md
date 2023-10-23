@@ -1,2 +1,2 @@
 # StudentManager
-Upon opening the project in Visual Studio, navigate to "view/studentmanagerui" and run "ng serve -o" to run the development server. Then, start the Visual Studio project.
+Start the project in Visual Studio, then in your web browser go to "https://student-manager-fe7af.web.app". This should display the Student Manager.
