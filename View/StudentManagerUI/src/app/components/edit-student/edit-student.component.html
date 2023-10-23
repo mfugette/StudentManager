@@ -1,0 +1,47 @@
+<p></p>
+<div *ngIf="student" style="display:flex; flex-direction: column; align-items: left; width: 25%;">
+
+    <mat-form-field appearance="fill">
+        <mat-label>First name</mat-label>
+        <input matInput [(ngModel)]="student.firstName" placeholder="Ex. Jane ">
+
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Last name</mat-label>
+        <input matInput [(ngModel)]="student.lastName" placeholder="Ex. Doe">
+        <mat-icon matSuffix></mat-icon>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="student.dateOfBirth">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput [(ngModel)]="student.age" placeholder="Ex. 25">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>All Majors</mat-label>
+        <mat-select [(ngModel)]="student.major">
+            <mat-option *ngFor="let major of majors" [value]="major">
+                {{major}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>GPA</mat-label>
+        <input matInput [(ngModel)]="student.gpa" placeholder="Ex. 3.6">
+    </mat-form-field>
+
+    <button mat-raised-button Primary color="primary" (click)="updateStudent(student)" (click)="reloadPage()"
+        *ngIf="student.id">Save</button>
+    <button mat-raised-button Primary color="primary" (click)="createStudent(student)" (click)="reloadPage()"
+        *ngIf="!student.id">Create</button>
+
+</div>

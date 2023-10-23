@@ -1,0 +1,97 @@
+<!-- Filter Students by Major -->
+<!-- <div class="filter">
+        <div class="filter-part">
+          <mat-form-field>
+        <mat-label>All Majors</mat-label>
+        <mat-select [(ngModel)]="selectedMajor">
+          <mat-option *ngFor="let major of majors" [value]="major">
+            {{major}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="filter-button">
+      <button mat-raised-button Flat (click)="filterStudentsByMajor()">Filter</button>
+    </div>
+    
+  </div> -->
+<div style="width:800px; margin:0 auto;">
+    <div>
+        <mat-form-field >
+            <mat-label>Filter by major</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Computer Science" #input>
+        </mat-form-field>
+    </div>
+    <!-- Table Showing Student Data -->
+    <div>
+        <table mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let student"> {{student.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="firstName">
+                <th mat-header-cell *matHeaderCellDef> First Name </th>
+                <td mat-cell *matCellDef="let student"> {{student.firstName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="lastName">
+                <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                <td mat-cell *matCellDef="let student"> {{student.lastName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dob">
+                <th mat-header-cell *matHeaderCellDef> DOB </th>
+                <td mat-cell *matCellDef="let student"> {{student.dateOfBirth}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="age">
+                <th mat-header-cell *matHeaderCellDef> Age </th>
+                <td mat-cell *matCellDef="let student"> {{student.age}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="major">
+                <th mat-header-cell *matHeaderCellDef> Major </th>
+                <td mat-cell *matCellDef="let student"> {{student.major}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="gpa">
+                <th mat-header-cell *matHeaderCellDef> GPA </th>
+                <td mat-cell *matCellDef="let student"> {{student.gpa}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let student">
+                    <button mat-raised-button Flat (click)="editThisStudent(student)">Edit</button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let student">
+                    <button mat-raised-button Flat color="warn" (click)="deleteThisStudent(student)"
+                        (click)="reloadPage()" *ngIf="student.id">Delete</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator #paginator [length]="students.length" [pageSize]="5" [pageSizeOptions]="[2, 5, 10, 20]">
+            [showFirstLastButtons]="true"
+
+        </mat-paginator>
+
+    </div>
+
+    <!-- Buttons -->
+    <div>
+        <button mat-flat-button Primary color="primary" style="width: 25%;" (click)="initNewStudent()">Add Student</button>
+        <button mat-flat-button Primary color="primary" style="width: 25%; float: right;" (click)="fillWithSampleData()" (click)="reloadPage()">Fill with Sample Data</button>
+        <!-- <button mat-flat-button Primary color="warn" style="width: 25%;" (click)="deleteAllStudents()">Delete all Students</button> -->
+        <app-edit-student [student]="studentToEdit" (studentsUpdated)="updateStudentList($event)"></app-edit-student>
+    </div>
+</div>
