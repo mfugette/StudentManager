@@ -12,6 +12,8 @@
 
 6. Then in the package manager console, type in "dotnet ef migrations add test" to migrate the table and procedures into the database.
 
-7. Lastly, in package manager console type in "dotnet ef database update" to update the database.
+7. Then in package manager console type in "dotnet ef database update" to update the database.
+
+8. Lastly, run the API.
 
 After these steps are taken, go to the website and try it out! Email me with any questions, comments, or concerns.
